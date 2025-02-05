@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+.b {
+	border: 1px soild transparent;
+	background-color: rgb(211, 211, 211);
+	margin: 10px 10px;
+	padding: 10px 8px 3px 15px;
+	border-radius: 10px;
+	font-size: 30px;
+	display: flex;
+}
+
+.b p {
+	margin: 10px 0px;
+	color: white;
+	text-shadow: 4px 4px 4px #000000;
+}
+
+.b img {
+	width: 80px;
+	height: 50px;
+	margin: 10px 10px 10px 10px;
+}
+
+.c {
+	border: 1px soild transparent;
+	width: 215px;
+	height: 120px;
+	background-color: #F16632; /* Orange */
+	color: #fff;
+	padding: 65px 10px 0px 78px;
+	margin: 15px 15px 10px 15px;
+	font-size: 36px;
+	border-radius: 15px;
+	transition: 1s ease;
+	text-decoration: none;
+}
+
+.c:hover {
+	transform: scale(1.1);
+}
+
+.d {
+	border: 1px soild transparent;
+	width: 215px;
+	height: 120px;
+	background-color: #26A69A; /* Teal */
+	color: #fff;
+	padding: 65px 10px 0px 78px;
+	margin: 15px 15px 10px 15px;
+	font-size: 36px;
+	justify-content: space-between;
+	border-radius: 15px;
+	transition: 1s ease;
+}
+
+.d:hover {
+	transform: scale(1.1);
+}
+
+.f {
+	border: 1px soild transparent;
+	width: 215px;
+	height: 120px;
+	background-color: #4CAF50; /* Green */
+	color: #fff;
+	padding: 60px 10px 5px 78px;
+	margin: 15px 15px 10px 15px;
+	font-size: 36px;
+	justify-content: space-between;
+	border-radius: 15px;
+	transition: 1s ease;
+}
+
+.f:hover {
+	transform: scale(1.1);
+}
+
+.h {
+	border: 1px soild transparent;
+	width: 215px;
+	height: 120px;
+	background-color: #EC407A; /* Medium Pink */
+	color: #fff;
+	padding: 35px 10px 30px 78px;
+	margin: 15px 15px 10px 15px;
+	justify-content: space-between;
+	font-size: 36px;
+	border-radius: 15px;
+	transition: 1s ease;
+	text-decoration: none;
+}
+
+.h:hover {
+	transform: scale(1.1);
+}
+
+.e {
+	display: flex;
+}
+
+.e img {
+	height: 400px;
+	width: 400px;
+	padding: 15px 15px;
+	margin: 10px 2px 10px 15px;
+}
+
+.g {
+	margin: 110px 10px 10px 10px;
+}
+
+.g h3{
+	font-size: 25px;
+}
+
+.set {
+	display: flex;
+	padding: 20px 10px 20px 60px;
+	margin: 30px 10px;
+}
+
+.table {
+	width: 1200px;
+	margin: 10px 50px;
+}
+
+.img img {
+	width: 200px;
+	height: 200px;
+}
+
+#id {
+	padding: 15px 15px;
+	font-size: 20px;
+	background-color: white;
+}
+
+#data {
+	padding: 12px 12px;
+	font-size: 18px;
+	background-color: white;
+	border:1px soild black;
+	text-decoration: none;
+}
+
+.t{
+	border: 1px soild transparent;
+	margin: 25px 25px;
+	border-radius: 20px;
+}
+
+.t h2 {
+	font-weight: lighter;
+	padding: 15px 5px 15px 505px ;
+	margin:0px 35px 0px 46px;
+	text-shadow: 2px 2px 4px #000000;
+	color: white;
+	font-size: 35px;
+	border-radius:15px;
+	background-color: rgb(211, 211, 211);
+}
+
+#r{
+text-decoration: none;
+color: white;
+}
+
+.col{
+color: blue;
+}
+</style>
+</head>
+<body>
+	<section>
+		<div class="b">
+			<img src="https://cdn-icons-png.flaticon.com/512/9097/9097301.png">
+			<p>User Dashboard</p>
+		</div>
+		<div class="e">
+			<img
+				src="https://cdn.pixabay.com/photo/2016/04/15/18/05/computer-1331579_640.png">
+			<div class="g">
+				<h3>UserDetails</h3>
+				<p>Name</p>
+				<p>Email</p>
+				<p>Other Details</p>
+			</div>
+			 <div class="set">
+				<div class="A">
+					<div class="c">
+						<a href="/users/add" id="r">register</a>
+					</div>
+					<div class="d">
+						<a href="/users/login" id="r">login</a>
+					</div>
+				</div>
+				<div class="B">
+					<div class="f">
+						<a href="#data" id="r">View users</a>
+					</div>
+					<div class="h">
+						<p>More</p>
+					</div>
+				</div>
+			</div> 
+		</div>
+		<div class="t">
+			<h2>Users Details</h2>
+			<table border="1" class="table" id="table">
+				<thead> 
+					<tr>
+						<th id="id">id</th>
+						<th id="id">name</th>
+						<th id="id">email</th>
+						<th id="id">actions</th>
+					</tr>
+				</thead>
+
+				<tbody>
+					<tr th:each="user:${user}">
+						<td th:text="${user.id}" id="data"></td>
+						<td th:text="${user.name}" id="data"></td>
+						<td th:text="${user.email}" id="data"></td>
+						<td><a th:href="@{/users/edituser/{id}(id=${user.id})}"id="data" class="col">edit</a> <a
+							th:href="@{/users/delete/{id}(id=${user.id})}" id="data" class="col">delete</a></td>
+					</tr>
+				</tbody>
+			</table>
+		</div> 
+</body>
+</html>
